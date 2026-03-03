@@ -15,7 +15,7 @@ namespace WebApplication1.Repository
 
         public async Task<List<OrdenProducto>> GetAllAsync()
         {
-            return await _context.OrdenProducts
+            return await _context.OrdenProductos
                 .Include(op => op.Producto)
                 .Include(op => op.Orden)
                 .ToListAsync();
@@ -23,7 +23,7 @@ namespace WebApplication1.Repository
 
         public async Task<OrdenProducto> GetByIdAsync(Guid id)
         {
-            return await _context.OrdenProducts
+            return await _context.OrdenProductos
                 .Include(op => op.Producto)
                 .Include(op => op.Orden)
                 .FirstOrDefaultAsync(op => op.Id == id);
@@ -31,22 +31,22 @@ namespace WebApplication1.Repository
 
         public async Task AddAsync(OrdenProducto ordenProducto)
         {
-            await _context.OrdenProducts.AddAsync(ordenProducto);
+            await _context.OrdenProductos.AddAsync(ordenProducto);
             await _context.SaveChangesAsync();
         }
 
         public async Task UpdateAsync(OrdenProducto ordenProducto)
         {
-            _context.OrdenProducts.Update(ordenProducto);
+            _context.OrdenProductos.Update(ordenProducto);
             await _context.SaveChangesAsync();
         }
 
         public async Task DeleteAsync(Guid id)
         {
-            var op = await _context.OrdenProducts.FindAsync(id);
+            var op = await _context.OrdenProductos.FindAsync(id);
             if (op != null)
             {
-                _context.OrdenProducts.Remove(op);
+                _context.OrdenProductos.Remove(op);
                 await _context.SaveChangesAsync();
             }
         }

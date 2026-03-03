@@ -18,32 +18,32 @@ namespace WebApplication1.Repository
 
         public async Task<List<Orden>> GetAllAsync()
         {
-            return await _context.Ordens.ToListAsync();
+            return await _context.Ordenes.ToListAsync();
         }
 
         public async Task<Orden> GetByIdAsync(Guid id)
         {
-            return await _context.Ordens.FindAsync(id);
+            return await _context.Ordenes.FindAsync(id);
         }
 
         public async Task AddAsync(Orden orden)
         {
-            await _context.Ordens.AddAsync(orden);
+            await _context.Ordenes.AddAsync(orden);
             await _context.SaveChangesAsync();
         }
 
         public async Task UpdateAsync(Orden orden)
         {
-            _context.Ordens.Update(orden);
+            _context.Ordenes.Update(orden);
             await _context.SaveChangesAsync();
         }
 
         public async Task DeleteAsync(Guid id)
         {
-            var orden = await _context.Ordens.FindAsync(id);
+            var orden = await _context.Ordenes.FindAsync(id);
             if (orden != null)
             {
-                _context.Ordens.Remove(orden);
+                _context.Ordenes.Remove(orden);
                 await _context.SaveChangesAsync();
             }
         }
