@@ -26,6 +26,7 @@ namespace WebApplication1.Service
             try
             {
                 Producto producto = await _productoRepository.GetByIdAsync(orden.ProductoId);
+                
                 if (producto == null)
                     throw new Exception("Producto no encontrado");
                 if (producto.Stock < orden.CantidadProduct)
@@ -46,7 +47,7 @@ namespace WebApplication1.Service
             }
             catch (Exception ex)
             {
-                throw new Exception("Hubo un error, no se pudo almacenar");
+                throw new Exception("Hubo un error, no se pudo almacenar"+ ex.Message);
             }
         }
 

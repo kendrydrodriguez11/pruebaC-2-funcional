@@ -26,10 +26,17 @@ builder.Services.AddDbContext<AppDbContext>(option =>
     option.UseSqlServer(builder.Configuration.GetConnectionString("AppDbContext"))
 );
 
+builder.Services.AddCors(options =>
+    options.AddDefaultPolicy(policy =>
+        policy.WithOrigins("http://localhost:4200")
+              .AllowAnyHeader()
+              .AllowAnyMethod()));
+
+
 var app = builder.Build();
 
+app.UseCors();
 
-    
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

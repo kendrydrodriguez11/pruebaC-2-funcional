@@ -15,7 +15,9 @@ namespace WebApplication1.Repository
 
         public async Task<List<Producto?>> GetAllAsync()
         {
-            return await _appDbContext.Productos.ToListAsync();
+            return await _appDbContext.Productos
+            .Include(p => p.Categoria) 
+            .ToListAsync();
         }
 
         public async Task<Producto?> GetByIdAsync(Guid id)

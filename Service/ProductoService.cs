@@ -65,7 +65,7 @@ namespace WebApplication1.Service
             {
 
                 Producto producto1 = await MapperToModel(producto);
-                _productoRepository.SaveAsync(producto1);
+                await _productoRepository.SaveAsync(producto1);
             }
             catch (Exception)
             {
@@ -78,7 +78,7 @@ namespace WebApplication1.Service
             try
             {
                 Producto producto1 = await MapperToModel(producto);
-                _productoRepository.SaveAsync(producto1);
+                await _productoRepository.SaveAsync(producto1);
             }
             catch (Exception)
             {
