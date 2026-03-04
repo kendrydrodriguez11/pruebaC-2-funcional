@@ -20,6 +20,7 @@ builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
 
 builder.Services.AddScoped<IProductoService, ProductoService>();
 builder.Services.AddScoped<IOrdenService, OrdenService>();
+builder.Services.AddScoped<ICategoriaService, CategoriaService>();
 
 builder.Services.AddDbContext<AppDbContext>(option =>
     option.UseSqlServer(builder.Configuration.GetConnectionString("AppDbContext"))
